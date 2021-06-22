@@ -34,6 +34,13 @@
 			<scope>runtime</scope>
 		</dependency>>
 
+       <!-- Support for JSON columns in hibernate-->
+        <dependency>
+            <groupId>com.vladmihalcea</groupId>
+            <artifactId>hibernate-types-52</artifactId>
+            <version>2.11.1</version>
+        </dependency>
+
 		<!-- This dependency includes the core HAPI-FHIR classes -->
         <dependency>
             <groupId>ca.uhn.hapi.fhir</groupId>
