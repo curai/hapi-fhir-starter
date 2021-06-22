@@ -3,10 +3,13 @@ package com.example.fhirserver;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.rest.server.RestfulServer;
 
+import com.example.fhirserver.providers.PatientProvider;
+
 import org.springframework.context.ApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import java.util.Arrays;
 
 @WebServlet("/*")
 public class FhirRestfulServer extends RestfulServer {
@@ -26,6 +29,9 @@ public class FhirRestfulServer extends RestfulServer {
 
         // register context with the server
 		setFhirContext(ctx);
+
+        // register all providers here
+		setResourceProviders(Arrays.asList(applicationContext.getBean(PatientProvider.class)));
 	}
 
 }
